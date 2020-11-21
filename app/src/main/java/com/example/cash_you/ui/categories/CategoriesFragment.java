@@ -13,23 +13,25 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.cash_you.R;
+import com.example.cash_you.models.Category;
 
 public class CategoriesFragment extends Fragment {
 
-    private CategoriesViewModel categoriesViewModel;
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        categoriesViewModel =
-                new ViewModelProvider(this).get(CategoriesViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_categories, container, false);
-        final TextView textView = root.findViewById(R.id.text_home);
-        categoriesViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
-        return root;
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = (View) inflater.inflate(R.layout.fragment_categories, container, false);
+        final TextView textView = (TextView) view.findViewById(R.id.text_home);
+
+        Category category = new Category("Food");
+        textView.setText(category.GetName());
+
+        return view;
     }
 }
