@@ -7,4 +7,8 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="foodColor">#20B2AA</color>
+    <color name="eatingOutColor">#F08080</color>
+    <color name="fareColor">#CD853F</color>
+    <color name="purchasesColor">#BA55D3</color>
 </resources>
