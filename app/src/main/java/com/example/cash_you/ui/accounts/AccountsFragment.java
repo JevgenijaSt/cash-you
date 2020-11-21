@@ -13,23 +13,21 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.cash_you.R;
+import com.example.cash_you.models.Category;
 
 public class AccountsFragment extends Fragment {
 
-    private AccountsViewModel accountsViewModel;
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        accountsViewModel =
-                new ViewModelProvider(this).get(AccountsViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_accounts, container, false);
-        final TextView textView = root.findViewById(R.id.text_dashboard);
-        accountsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
-        return root;
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = (View) inflater.inflate(R.layout.fragment_accounts, container, false);
+
+        return view;
     }
 }

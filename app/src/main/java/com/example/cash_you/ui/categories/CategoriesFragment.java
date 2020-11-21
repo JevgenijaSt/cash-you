@@ -6,14 +6,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 
 import com.example.cash_you.R;
 import com.example.cash_you.models.Category;
+import com.github.mikephil.charting.charts.PieChart;
 
 public class CategoriesFragment extends Fragment {
 
@@ -52,6 +50,14 @@ public class CategoriesFragment extends Fragment {
         final TextView purchasesBalance = (TextView) view.findViewById(R.id.purchasesBalance);
         purchasesName.setText(purchasesCategory.GetName());
         purchasesBalance.setText(purchasesCategory.GetCurrentBalance());
+
+        PieChart chart = (PieChart) view.findViewById(R.id.outcome_chart);
+
+        Chart outcomeChart = new Chart(chart);
+        outcomeChart.addData(50, ContextCompat.getColor(getActivity(), R.color.foodColor));
+        outcomeChart.addData(40, ContextCompat.getColor(getActivity(), R.color.eatingOutColor));
+        outcomeChart.addData(30, ContextCompat.getColor(getActivity(), R.color.fareColor));
+        outcomeChart.addData(20, ContextCompat.getColor(getActivity(), R.color.purchasesColor));
 
         return view;
     }
