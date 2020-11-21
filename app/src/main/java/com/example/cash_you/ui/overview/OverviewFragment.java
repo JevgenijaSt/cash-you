@@ -15,7 +15,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.cash_you.R;
-import com.example.cash_you.ui.categories.CategoriesViewModel;
 
 public class OverviewFragment extends Fragment {
 

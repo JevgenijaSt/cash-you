@@ -6,6 +6,15 @@
     android:layout_height="wrap_content"
     tools:context=".ui.categories.CategoriesFragment">
 
+    <com.github.mikephil.charting.charts.PieChart
+        android:id="@+id/outcome_chart"
+        android:layout_width="262dp"
+        android:layout_height="311dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fare" />
+
     <Button
         android:id="@+id/foodButton"
         style="@style/Widget.AppCompat.Button"
