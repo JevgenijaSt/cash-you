@@ -13,23 +13,46 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.cash_you.R;
+import com.example.cash_you.models.Category;
 
 public class CategoriesFragment extends Fragment {
 
-    private CategoriesViewModel categoriesViewModel;
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        categoriesViewModel =
-                new ViewModelProvider(this).get(CategoriesViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_categories, container, false);
-        final TextView textView = root.findViewById(R.id.text_home);
-        categoriesViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
-        return root;
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = (View) inflater.inflate(R.layout.fragment_categories, container, false);
+
+        // Create default categories - Food, Eating out, Fare, Purchases
+        Category foodCategory = new Category("Food");
+        final TextView foodName = (TextView) view.findViewById(R.id.foodName);
+        final TextView foodBalance = (TextView) view.findViewById(R.id.foodBalance);
+        foodName.setText(foodCategory.GetName());
+        foodBalance.setText(foodCategory.GetCurrentBalance());
+
+        Category eatingOutCategory = new Category("Eating out");
+        final TextView eatingOutName = (TextView) view.findViewById(R.id.eatingOutName);
+        final TextView eatingOutBalance = (TextView) view.findViewById(R.id.eatingOutBalance);
+        eatingOutName.setText(eatingOutCategory.GetName());
+        eatingOutBalance.setText(eatingOutCategory.GetCurrentBalance());
+
+        Category fareCategory = new Category("Fare");
+        final TextView fareName = (TextView) view.findViewById(R.id.fareName);
+        final TextView fareBalance = (TextView) view.findViewById(R.id.fareBalance);
+        fareName.setText(fareCategory.GetName());
+        fareBalance.setText(fareCategory.GetCurrentBalance());
+
+        Category purchasesCategory = new Category("Purchases");
+        final TextView purchasesName = (TextView) view.findViewById(R.id.purchasesName);
+        final TextView purchasesBalance = (TextView) view.findViewById(R.id.purchasesBalance);
+        purchasesName.setText(purchasesCategory.GetName());
+        purchasesBalance.setText(purchasesCategory.GetCurrentBalance());
+
+        return view;
     }
 }

@@ -19,4 +19,6 @@
     <string name="title_settings_password">Password</string>
     <string name="title_settings_subscriptions">Subscriptions</string>
     <string name="title_settings_limits">Limits</string>
+
+    <string name="title_current_balance">0P</string>
 </resources>

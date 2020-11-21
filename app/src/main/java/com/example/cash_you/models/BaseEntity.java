@@ -12,8 +12,8 @@ public abstract class BaseEntity {
     public String GetName() {
         return name;
     }
-    public Double GetCurrentBalance() {
-        return currentBalance;
+    public String GetCurrentBalance() {
+        return Double.toString(currentBalance);
     }
 
     public String ChangeName(String newName) {
