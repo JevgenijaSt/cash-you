@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.appbar.AppBarLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/app_bar_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.appbar.CollapsingToolbarLayout
+        android:id="@+id/collapsing_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:contentScrim="?attr/colorPrimary"
+        app:layout_scrollFlags="scroll|exitUntilCollapsed"
+        app:titleEnabled="false">
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout_toolbarPeriod"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="?attr/actionBarSize"
+
+            android:paddingEnd="8dp"
+            android:paddingStart="8dp"
+            app:layout_collapseMode="pin"
+            app:layout_collapseParallaxMultiplier="0.7">
+
+            <!-- Filter -->
+            <include
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toStartOf="@+id/divider"
+                layout="@layout/filters_status" />
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="1dp"
+                android:layout_height="1dp"
+                android:layout_alignBottom="@+id/button_prevPeriod"
+                android:layout_alignParentEnd="false"
+                android:layout_alignTop="@+id/button_prevPeriod"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="2dp"
+                android:layout_toStartOf="@+id/button_prevPeriod"
+                android:background="@android:color/darker_gray" />
+
+            <!-- Period previous -->
+            <ImageView
+                android:id="@+id/button_prevPeriod"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="8dp"
+                android:layout_toStartOf="@+id/button_nextPeriod"
+                android:background="@drawable/ripple_borderless_api19"
+                android:padding="8dp"
+                android:src="@drawable/ic_arrow_left_white_24dp"
+                android:visibility="gone" />
+
+            <!-- Period next -->
+            <ImageView
+                android:id="@+id/button_nextPeriod"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/ripple_borderless_api19"
+                android:padding="8dp"
+                android:src="@drawable/ic_arrow_right_white_24dp"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/button_nextPeriod"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:id="@+id/frameLayout_filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/textView_filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:background="@drawable/rounded_corner"
+                        android:text="@string/filter" />
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end|top">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:alpha="0.7"
+                            android:background="@drawable/closex" />
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_gravity="center"
+                            android:alpha="0.7"
+                            android:background="@drawable/ic_clear_white_24dp" />
+                    </FrameLayout>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/frameLayout_sort"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/textView_sort"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:background="@drawable/rounded_corner"
+                        android:paddingEnd="16dp"
+                        android:text="@string/sort" />
+
+
+                    <ImageView
+                        android:id="@+id/imageView_sortUpDown"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|end"
+                        android:layout_marginEnd="4dp"
+                        android:alpha="0.7"
+                        android:src="@drawable/ic_keyboard_arrow_up_white_24dp"
+                        android:tint="@color/black" />
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end|top">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:alpha="0.7"
+                            android:background="@drawable/closex" />
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_gravity="center"
+                            android:alpha="0.7"
+                            android:background="@drawable/ic_clear_white_24dp" />
+                    </FrameLayout>
+                </FrameLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+        <androidx.appcompat.widget.Toolbar
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            app:layout_collapseMode="pin"
+            android:theme="@style/ToolbarDefault" />
+
+    </com.google.android.material.appbar.CollapsingToolbarLayout>
+</com.google.android.material.appbar.AppBarLayout>

@@ -1,0 +1,383 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+
+    <include
+        android:id="@+id/toolbar" layout="@layout/toolbar" />
+
+    <ScrollView
+        android:id="@+id/scrollView_newTransaction"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="false"
+        android:orientation="vertical"
+        android:theme="@style/Base.Theme.AppCompat.Light">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical">
+
+            <!-- Paid Back -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_newTransaction_paidBack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/cardview_default_margin"
+                android:layout_marginStart="@dimen/cardview_default_margin"
+                android:layout_marginTop="@dimen/cardview_default_margin"
+                android:visibility="gone"
+                card_view:cardCornerRadius="@dimen/cardview_default_radius"
+                card_view:cardElevation="@dimen/cardview_default_elevation"
+                card_view:cardUseCompatPadding="true"
+                card_view:contentPadding="@dimen/cardview_default_padding">
+
+                <CheckBox
+                    android:id="@+id/checkBox_newTransaction_paidback"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:clickable="false"
+                    android:text="@string/confirm_paidback" />
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Cost -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_newTransaction_cost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/cardview_default_margin"
+                android:layout_marginStart="@dimen/cardview_default_margin"
+                android:layout_marginTop="@dimen/cardview_default_margin"
+                card_view:cardCornerRadius="@dimen/cardview_default_radius"
+                card_view:cardElevation="@dimen/cardview_default_elevation"
+                card_view:cardUseCompatPadding="true"
+                card_view:contentPadding="@dimen/cardview_default_padding">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/TIL_newTransaction_cost"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:theme="@style/Base.Theme.AppCompat.Light">
+                        <!--actionDone-->
+                        <EditText
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:hint="@string/header_cost"
+                            android:imeOptions="actionNext"
+                            android:inputType="number|numberDecimal"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:textColorHint="@android:color/transparent" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Split -->
+
+                    <LinearLayout
+                        android:id="@+id/linearLayout_newTransaction_split"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/TIL_newTransaction_cost"
+                        android:layout_marginTop="5dp"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginEnd="5dp"
+                            android:text="@string/tt_paid"
+                            android:textAlignment="viewEnd"
+                            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Small" />
+
+                        <LinearLayout
+                            android:id="@+id/linearLayout_newTransaction_splitContainer"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <Button
+                                android:id="@+id/button_newTransaction_addsplit"
+                                style="@style/FlatButtonTheme"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:paddingBottom="16dp"
+                                android:paddingTop="16dp"
+                                android:text="@string/action_addsplit"
+                                android:textAlignment="viewStart"
+                                android:textAllCaps="false" />
+
+                            <Button
+                                android:id="@+id/button_newTransaction_removesplit"
+                                style="@style/FlatButtonTheme"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center_vertical|end"
+                                android:paddingBottom="16dp"
+                                android:paddingTop="16dp"
+                                android:text="@string/action_removesplit"
+                                android:textAlignment="viewEnd"
+                                android:textAllCaps="false" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Category and Source -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_newTransaction_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/cardview_default_margin"
+                android:layout_marginStart="@dimen/cardview_default_margin"
+                android:layout_marginTop="@dimen/cardview_default_margin"
+                card_view:cardCornerRadius="@dimen/cardview_default_radius"
+                card_view:cardElevation="@dimen/cardview_default_elevation"
+                card_view:cardUseCompatPadding="true"
+                card_view:contentPadding="@dimen/cardview_default_padding">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/button_newTransaction_selectCategory"
+                            style="@style/FlatButtonTheme"
+                            android:layout_width="174dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:paddingTop="16dp"
+                            android:paddingBottom="16dp"
+                            android:text="@string/info_select_category"
+                            android:textAllCaps="false" />
+
+                        <Button
+                            android:id="@+id/button_newTransaction_selectAccount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Select an account"
+                            style="@style/FlatButtonTheme"
+                            android:layout_gravity="center_vertical"
+                            android:paddingBottom="16dp"
+                            android:paddingTop="16dp"
+                            android:textAllCaps="false"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Description -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_newTransaction_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/cardview_default_margin"
+                android:layout_marginStart="@dimen/cardview_default_margin"
+                android:layout_marginTop="@dimen/cardview_default_margin"
+                card_view:cardCornerRadius="@dimen/cardview_default_radius"
+                card_view:cardElevation="@dimen/cardview_default_elevation"
+                card_view:cardUseCompatPadding="true"
+                card_view:contentPadding="@dimen/cardview_default_padding">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/TIL_newTransaction_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp">
+
+                    <EditText
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignEnd="@+id/editText_newTransaction_name"
+                        android:layout_alignParentStart="true"
+                        android:layout_below="@+id/editText_newTransaction_name"
+                        android:hint="@string/info_description"
+                        android:imeOptions="actionNext"
+                        android:inputType="textCapSentences|textMultiLine"
+                        android:maxLines="4"
+                        android:minLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Time Period -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_newTransaction_timeperiod"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/cardview_default_margin"
+                android:layout_marginEnd="@dimen/cardview_default_margin"
+                android:layout_marginTop="@dimen/cardview_default_margin"
+                card_view:cardCornerRadius="@dimen/cardview_default_radius"
+                card_view:cardElevation="@dimen/cardview_default_elevation"
+                card_view:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout android:id="@+id/linearLayout_newTransaction_series_override"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ripple_api19"
+                        android:clickable="true"
+                        android:orientation="horizontal"
+                        android:paddingBottom="20dp"
+                        android:paddingEnd="10dp"
+                        android:paddingStart="15dp"
+                        android:paddingTop="20dp"
+                        android:visibility="gone">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <Switch
+                                android:id="@+id/switch_override_series"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center_vertical"
+                                android:text="@string/info_tran_series_override"
+                                android:textColor="@color/black" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout android:id="@+id/linearLayout_newTransaction_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ripple_api19"
+                        android:clickable="true"
+                        android:orientation="horizontal"
+                        android:paddingBottom="20dp"
+                        android:paddingEnd="10dp"
+                        android:paddingStart="15dp"
+                        android:paddingTop="20dp">
+
+                        <ImageView
+                            android:id="@+id/imageView_dateIcon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginEnd="20dp"
+                            android:src="@drawable/ic_calendar_white_24dp"
+                            android:tint="@color/turquoise" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textView_newTransaction_date"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/time_setdate"
+                                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Small"
+                                android:textColor="@color/black" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout android:id="@+id/linearLayout_newTransaction_repeat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ripple_api19"
+                        android:clickable="true"
+                        android:orientation="horizontal"
+                        android:paddingBottom="20dp"
+                        android:paddingEnd="10dp"
+                        android:paddingStart="15dp"
+                        android:paddingTop="20dp">
+
+                        <ImageView
+                            android:id="@+id/imageView_repeatIcon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginEnd="20dp"
+                            android:src="@drawable/ic_repeat_white_24dp"
+                            android:tint="@color/turquoise" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textView_newTransaction_repeat"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/repeat"
+                                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Small"
+                                android:textColor="@color/black" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- BlackList -->
+            <FrameLayout
+                android:id="@+id/frameLayout_blacklistdates"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/cardview_default_margin">
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
