@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.appbar.AppBarLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/app_bar_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.appbar.CollapsingToolbarLayout
+        android:id="@+id/collapsing_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        app:contentScrim="?attr/colorPrimary"
+        app:titleEnabled="false">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="?attr/actionBarSize"
+            android:paddingBottom="8dp"
+            android:paddingEnd="8dp"
+            android:paddingStart="8dp"
+
+            app:layout_collapseMode="pin"
+            app:layout_collapseParallaxMultiplier="0.7">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/TIL_name_AME"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:focusableInTouchMode="true"
+                android:theme="@style/Base.Theme.AppCompat.Light">
+
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/tt_categoryname"
+                    android:inputType="textCapWords"
+                    android:maxLines="1"
+                    android:textColor="@color/white" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ImageView
+                android:id="@+id/imageView_dialogcat"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_below="@+id/TIL_name_AME"
+                android:src="@drawable/square" />
+
+            <org.adw.library.widgets.discreteseekbar.DiscreteSeekBar
+                android:id="@+id/seekBar_dialogcat_red"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageView_dialogcat"
+                android:layout_marginTop="20dp"
+                app:dsb_indicatorColor="@color/red"
+                app:dsb_indicatorFormatter="%s%%"
+                app:dsb_max="100"
+                app:dsb_min="0"
+                app:dsb_progressColor="@color/red"
+                app:dsb_rippleColor="@color/red"
+                app:dsb_value="50" />
+
+            <org.adw.library.widgets.discreteseekbar.DiscreteSeekBar
+                android:id="@+id/seekBar_dialogcat_green"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/seekBar_dialogcat_red"
+                app:dsb_indicatorColor="@color/green"
+                app:dsb_indicatorFormatter="%s%%"
+                app:dsb_max="100"
+                app:dsb_min="0"
+                app:dsb_progressColor="@color/green"
+                app:dsb_rippleColor="@color/green"
+                app:dsb_value="50" />
+
+            <org.adw.library.widgets.discreteseekbar.DiscreteSeekBar
+                android:id="@+id/seekBar_dialogcat_blue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/seekBar_dialogcat_green"
+                app:dsb_indicatorColor="@color/blue"
+                app:dsb_indicatorFormatter="%s%%"
+                app:dsb_max="100"
+                app:dsb_min="0"
+                app:dsb_progressColor="@color/blue"
+                app:dsb_rippleColor="@color/blue"
+                app:dsb_value="50" />
+
+
+        </RelativeLayout>
+
+
+        <include layout="@layout/toolbar"/>
+
+    </com.google.android.material.appbar.CollapsingToolbarLayout>
+</com.google.android.material.appbar.AppBarLayout>
