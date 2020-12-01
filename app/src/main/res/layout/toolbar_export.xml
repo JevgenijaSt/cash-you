@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.appbar.AppBarLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/appbarlayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.appbar.CollapsingToolbarLayout
+        android:id="@+id/collapsing_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        app:contentScrim="?attr/colorPrimary"
+        app:titleEnabled="false">
+
+        <LinearLayout
+            android:id="@+id/linearLayout_dialog_files"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="?attr/actionBarSize"
+            android:orientation="vertical"
+            android:paddingBottom="16dp"
+            android:paddingEnd="16dp"
+
+            android:paddingStart="16dp"
+            app:layout_collapseMode="pin"
+            app:layout_collapseParallaxMultiplier="0.7">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/TIL_dialog_filename"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:focusableInTouchMode="true"
+                android:theme="@style/Base.Theme.AppCompat.Light">
+
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz_-1234567890&lt;>~"
+                    android:hint="@string/placeholder_filename"
+                    android:inputType="textCapWords"
+                    android:maxLines="1"
+                    android:textColor="@color/white" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch_override_export"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:checked="false"
+                android:clickable="false"
+                android:enabled="false"
+                android:gravity="center_vertical|end"
+                android:text="@string/tt_override"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+
+        <androidx.appcompat.widget.Toolbar
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            app:layout_collapseMode="pin"
+            android:theme="@style/ToolbarDefault"/>
+
+    </com.google.android.material.appbar.CollapsingToolbarLayout>
+</com.google.android.material.appbar.AppBarLayout>

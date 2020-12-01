@@ -1,17 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
 
-    <color name="foodColor">#20B2AA</color>
-    <color name="eatingOutColor">#F08080</color>
-    <color name="fareColor">#CD853F</color>
-    <color name="purchasesColor">#BA55D3</color>
-    <color name="gray">#808080</color>
+    <!-- Set theme colors from http://www.google.com/design/spec/style/color.html#color-color-palette-->
+    <!-- colorPrimary is used for the default action bar background -->
+    <item name="colorPrimary" type="color">#3f51b5</item> <!--#2196F3-->
+    <!-- colorPrimaryDark is used for the status bar -->
+    <item name="colorPrimaryDark" type="color">#303f9f</item> <!--#1976D2-->
+    <!-- colorAccent is used as the default value for colorControlActivated
+         which is used to tint widgets -->
+    <item name="colorAccent" type="color">#FF009688</item> <!--#ff1744-->
+    <item name="colorAccentDark" type="color">#007065</item> <!--#d50000-->
+    <!-- You can also set colorControlNormal, colorControlActivated
+         colorControlHighlight and colorSwitchThumbNormal. -->
+    <item name="colorControlHighlight" type="color">#80eeeeee</item>
+    <item name="colorControlActivated" type="color">@color/colorAccent</item>
 
+    <item name="red" type="color">#FF0000</item>
+    <item name="green" type="color">#00FF00</item>
+    <item name="darkgreen" type="color">#388E3C</item>
+    <item name="blue" type="color">#0000ff</item>
+    <item name="white" type="color">#FFFFFF</item>
+    <item name="black" type="color">#212121</item>
+    <item name="gray" type="color">#757575</item>
+    <item name="vltgray" type="color">#EEEEEE</item>
+    <item name="ltgray" type="color">#FFCCCCCC</item>
+    <item name="turquoise" type="color">#009688</item>
+
+    <item name="disabled_white" type="color">#82ffffff</item>
+
+    <item name="transparent" type="color">#00ffffff</item>
+    <item name="halfTransparent" type="color">#fdffffff</item>
+
+    <item name="unpressed_color" type="color">#ffffff</item>
+    <item name="pressed_color" type="color">#2195f2</item>
+
+    <item name="raised_button_blue" type="color">#2196F3</item>
 </resources>
